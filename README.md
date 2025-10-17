@@ -29,7 +29,7 @@ This project is intended to:
 💡 Example: PizzaRP solves the part of the problem where orders and totals are created by letting a user select items from a menu and automatically generating a correct invoice.
 
 **User stories:**
-1. As a user, I want to see the pizza menu in the console.
+1. As a user, I want to see the pizza menu in the console. Blabla
 2. As a user, I want to select pizzas and see the running total.
 3. As a user, I want discounts to be applied automatically.
 4. As a user, I want an invoice to be created and saved as a file.
