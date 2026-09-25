@@ -197,7 +197,6 @@ All prices are in Swiss francs (CHF). The examples use the following menu from `
 
 ---
 
-> 🚧 **Note on the reference implementation:** The current `main.py` does not yet ask for a quantity (US-03, US-04). Each pizza has to be selected once per piece. Implementing the quantity input is a good first exercise.
 
 **Use cases:**
 - Show Menu (from `menu.txt`)
@@ -242,6 +241,14 @@ The application validates all user input to ensure data integrity and a smooth u
 	```
 	This ensures only valid menu items can be ordered.
 
+- **Quantity input:** After a pizza is selected, the program asks for the quantity until a whole number of at least 1 is entered:
+	```python
+	if not quantity.isdigit() or int(quantity) < 1:
+			print("⚠️ Invalid quantity.")
+			continue
+	```
+	This rejects `0`, negative numbers, decimal numbers, and text.
+
 - **Menu file validation:** When reading the menu file, the program checks for valid price values and skips invalid lines:
 	```python
 	try:
@@ -279,16 +286,12 @@ The application reads and writes data using files:
 - **Output file:** `invoice_001.txt` (and similar) — Generated when an order is completed. Contains a summary of the order, including items, quantities, prices, discounts, and totals.
 	- Example:
 		```
-		Invoice #001
-		----------------------
-		1x Margherita (Medium)   12.50
-
-
-		2x Salami (Large)        30.00
-		----------------------
-		Total:                  42.50
-		Discount:                2.50
-		Amount Due:             40.00
+		🍕 PIZZA RP INVOICE
+		---------------------
+		3x Diavola (Large) - CHF 52.50
+		---------------------
+		Discount: 10% discount (-CHF 5.25)
+		TOTAL: CHF 47.25
 		```
 		- The output file serves as a record for both the user and the pizzeria, ensuring accuracy and transparency.
 
